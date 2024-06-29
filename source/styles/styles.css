@@ -1,0 +1,264 @@
+
+.count-lives {
+    margin-top: 10px;
+    margin-right: 10px;
+    font-size: 6vw;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/*##########################################
+#                  TABLE                   #
+##########################################*/
+
+.grid {
+    margin: 10px 10px 30px 10px;
+    display: grid;
+    background-color: rgb(185, 185, 255);
+    border: 2px solid rgb(114, 114, 243);
+    border-radius: 9px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nine_cells {
+    display: grid;
+    background-color: rgb(114, 114, 243);
+    border: 2px solid rgb(185, 185, 255);
+    border-radius: 8px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2px;
+}
+
+.cell {
+    position: relative;
+    color: rgb(114, 114, 243);
+    border: 1px solid rgb(114, 114, 243);
+    background-color: white;
+    border-radius: 5px;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+}
+
+.cell-cyan {
+    background-color: rgb(185, 185, 255);
+    color: white;
+}
+
+.cell-blue {
+    background-color: rgb(114, 114, 243);
+    color: white;
+}
+
+.num {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    font-size: 6vw;
+    font-weight: bolder;
+}
+
+.cell:hover {
+    background-color: rgb(114, 114, 243);
+    color: white;
+}
+
+
+/*##########################################
+#                  NUMPAD                  #
+##########################################*/
+
+.numpad {
+    display: flex;
+    margin: 0px 10px;
+    margin-top: 5px;
+    justify-content: center;
+}
+
+.numpad > div {
+    margin: 0 auto;
+    border: 3px solid rgb(114, 114, 243);
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(114, 114, 243);
+    padding: 5px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.numpad > div:hover {
+    color: white;
+    background-color: rgb(185, 185, 255);
+    border-color: rgb(185, 185, 255);
+}
+
+
+/*##########################################
+#                  MEDIA                   #
+##########################################*/
+
+
+
+/*##########################################
+#               ANIMATIONS                 #
+##########################################*/
+
+.animPulseHeart {
+    animation: pulseHeart 2s ease 0s 1 normal forwards;
+}
+
+@keyframes pulseHeart {
+	0% {
+		opacity: 0.8;
+        transform: scale(1.5);
+	}
+
+	80% {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0.2);
+	}
+}
+
+/*##########################################
+#                GAME START                #
+##########################################*/
+
+#screen-start {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.text-sudoku {
+    text-align: center;
+    font-size: 13vw;
+    margin: 0;
+    margin-top: 160px;
+    font-weight: bolder;
+    color: rgb(71, 71, 233);
+}
+
+.btn-start {
+    margin-top: 200px;
+    text-align: center;
+}
+
+#screen-start > div.btn-start > button {
+    color: rgb(71, 71, 233);
+    border: 3px solid rgb(71, 71, 233);
+    background-color: white;
+    border-radius: 15px;
+    font-size: 8vw;
+    font-weight: bold;
+    padding: 5px 15px 10px 15px;
+    margin: 0 auto;
+}
+
+#screen-start > div.btn-start > button:hover {
+    color: white;
+    background-color: rgb(71, 71, 233);
+}
+
+
+
+/*##########################################
+#                GAME OVER                 #
+##########################################*/
+
+#screen-gameover {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.text-gameover {
+    text-align: center;
+    font-size: 13vw;
+    margin: 0;
+    margin-top: 150px;
+    font-weight: bolder;
+    color: rgb(199, 55, 55);
+}
+
+.btn-restart {
+    margin-top: 200px;
+    text-align: center;
+}
+
+#screen-gameover > div.btn-restart > button {
+    color: rgb(199, 55, 55);
+    border: 3px solid rgb(199, 55, 55);
+    background-color: white;
+    border-radius: 15px;
+    font-size: 8vw;
+    font-weight: bold;
+    padding: 5px 15px 10px 15px;
+    margin: 0 auto;
+}
+
+#screen-gameover > div.btn-restart > button:hover {
+    color: white;
+    background-color: rgb(199, 55, 55);
+}
+
+/*##########################################
+#                    WIN                   #
+##########################################*/
+
+#screen-win {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.text-win {
+    text-align: center;
+    font-size: 13vw;
+    margin: 0;
+    margin-top: 150px;
+    font-weight: bolder;
+    color: rgb(240, 208, 67);
+}
+
+.btn-restart {
+    margin-top: 200px;
+    text-align: center;
+}
+
+#screen-win > div.btn-restart > button {
+    color: rgb(240, 208, 67);
+    border: 3px solid rgb(240, 208, 67);
+    background-color: white;
+    border-radius: 15px;
+    font-size: 8vw;
+    font-weight: bold;
+    padding: 5px 15px 10px 15px;
+    margin: 0 auto;
+}
+
+#screen-win > div.btn-restart > button:hover {
+    color: white;
+    background-color: rgb(240, 208, 67);
+}
+

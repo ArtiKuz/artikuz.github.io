@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="source/styles/styles.css">
+    <title>Sudoku</title>
+</head>
+
+<body>
+    <article>
+        <div class="count-lives">
+            <div id="all-heart"></div>
+            <div id="lost-heart"></div>
+        </div>
+        <div class="grid">
+            <div class="nine_cells">
+                <div class="cell" id="00" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="01" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="02" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="10" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="11" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="12" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="20" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="21" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="22" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="03" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="04" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="05" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="13" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="14" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="15" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="23" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="24" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="25" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="06" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="07" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="08" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="16" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="17" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="18" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="26" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="27" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="28" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="30" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="31" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="32" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="40" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="41" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="42" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="50" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="51" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="52" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="33" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="34" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="35" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="43" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="44" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="45" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="53" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="54" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="55" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="36" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="37" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="38" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="46" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="47" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="48" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="56" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="57" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="58" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="60" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="61" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="62" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="70" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="71" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="72" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="80" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="81" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="82" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="63" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="64" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="65" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="73" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="74" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="75" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="83" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="84" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="85" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+            <div class="nine_cells">
+                <div class="cell" id="66" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="67" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="68" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="76" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="77" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="78" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="86" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="87" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+                <div class="cell" id="88" onclick="controller.click_cell(this.id)"><div class="num"></div></div>
+            </div>
+        </div>
+        <div class="numpad">
+            <div class="btn-pad" onclick="controller.click_btn(1)">1</div>
+            <div class="btn-pad" onclick="controller.click_btn(2)">2</div>
+            <div class="btn-pad" onclick="controller.click_btn(3)">3</div>
+            <div class="btn-pad" onclick="controller.click_btn(4)">4</div>
+            <div class="btn-pad" onclick="controller.click_btn(5)">5</div>
+        </div>
+        <div class="numpad">
+            <div class="btn-pad" onclick="controller.click_btn(6)">6</div>
+            <div class="btn-pad" onclick="controller.click_btn(7)">7</div>
+            <div class="btn-pad" onclick="controller.click_btn(8)">8</div>
+            <div class="btn-pad" onclick="controller.click_btn(9)">9</div>
+        </div>
+
+        <div id="screen-start">
+            <h1 class="text-sudoku">
+                Sudoku!
+            </h1>
+            
+            <div class="btn-start">
+                <button onclick="controller.click_start_game()">Start</button>
+            </div>
+        </div>
+
+        <div id="screen-gameover">
+            <div class="text-gameover">
+                GAME OVER
+            </div>
+            <div class="btn-restart">
+                <button onclick="controller.click_to_menu()">Menu</button>
+            </div>
+        </div>
+
+        <div id="screen-win">
+            <div class="text-win">
+                YOU WIN!
+            </div>
+            <div class="btn-restart">
+                <button onclick="controller.click_to_menu()">Menu</button>
+            </div>
+        </div>
+    </article>
+
+
+    <script type="text/javascript" src="source/javascripts/javascript.js"></script>
+</body>
+
+</html>
