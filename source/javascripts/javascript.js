@@ -13,12 +13,23 @@ var view = {
         }
     },
 
+    displayNameDiff: function (name) {
+        let menu = document.getElementById('name-diff');
+        menu.innerHTML = name;
+    },
+
     displayCyanCells: function (list_id) {
         for (id of list_id) {
             let cell = document.getElementById(id);
             cell.classList.add('cell-cyan');
         }
     },
+
+    toggle_drop_down: function () {
+        let drop_menu = document.getElementsByClassName('submenu')[0];
+        drop_menu.classList.toggle('toggle-display'); 
+    },
+
 
     displayBlueCell: function (cell_id) {
         let cell = document.getElementById(cell_id);
@@ -70,6 +81,30 @@ var view = {
 
         let screenWin = document.getElementById('screen-win');
         screenWin.style.display = 'none';
+
+        let screenWindow = document.getElementById('screen-window');
+        screenWindow.style.display = 'none';
+    },
+
+    game_restart: function() {
+        let screenGameover = document.getElementById('screen-gameover');
+        screenGameover.style.display = 'none';
+
+        let screenWin = document.getElementById('screen-win');
+        screenWin.style.display = 'none';
+
+        let screenWindow = document.getElementById('screen-window');
+        screenWindow.style.display = 'none';
+    },
+
+    open_exit: function() {
+        let screenWindow = document.getElementById('screen-window');
+        screenWindow.style.display = 'block';
+    },
+
+    close_exit: function() {
+        let screenWindow = document.getElementById('screen-window');
+        screenWindow.style.display = 'none';
     },
 
     displayRedBorder: function (element) {
@@ -141,10 +176,19 @@ let sudoku_spawner = {
     },
 
     random_open: function (count) {
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                this.random_open_mini(count, i, j);
+            }
+        }
+    },
+
+    random_open_mini: function (count, i, j) {
+        count = count + randint(0, 1);
+        for (let c = 0; c < count; c++) {
             while (true) {
-                let x = randint(0, 8);
-                let y = randint(0, 8);
+                let x = randint(0, 2) + i*3;
+                let y = randint(0, 2) + j*3;
                 if (!this.visible_field[y][x]) {
                     this.visible_field[y][x] = true;
                     break;
@@ -152,7 +196,6 @@ let sudoku_spawner = {
             }
             model.keep_to_win--;
         }
-
     },
 
     check_lines: function () {
@@ -250,13 +293,14 @@ function randint(first, second) {
 let model = {
     count_lives: 3,
     keep_to_win: 81,
+    difficulty: 3,
 
-    init: function (count) {
+    init: function () {
         this.count_lives = 3;
         this.keep_to_win = 81;
         view.hideAllValues();
         sudoku_spawner.default_visible_field();
-        sudoku_spawner.random_mix(500);
+        sudoku_spawner.random_mix(randint(300, 700));
 
         if (!(sudoku_spawner.check_lines ||
             sudoku_spawner.check_columns ||
@@ -264,7 +308,7 @@ let model = {
             alert("ERROR!!!")
         }
 
-        sudoku_spawner.random_open(count);
+        sudoku_spawner.random_open(this.difficulty);
 
         this.collect_sudoku();
 
@@ -359,13 +403,35 @@ let controller = {
         }
     },
 
+    click_diff: function () {
+        view.toggle_drop_down();
+    },
+
+    click_set_difficulty: function(value, name) {
+        model.difficulty = value;
+        view.displayNameDiff(name);
+    },
+
+    click_restart: function() {
+        view.game_restart();
+        this.click_start_game();
+    },
+
     click_start_game: function () {
-        model.init(40);
+        model.init();
         view.game_start();
     },
 
     click_to_menu: function () {
         view.open_menu();
+    },
+
+    click_to_open_exit: function() {
+        view.open_exit();
+    },
+
+    click_to_close_exit: function() {
+        view.close_exit();
     },
 
     click_cell: function (id) {

@@ -1,11 +1,31 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 
 .count-lives {
-    margin-top: 10px;
-    margin-right: 10px;
+    margin: 10px 20px;
     font-size: 6vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.hearts-container {
     display: flex;
     flex-direction: row-reverse;
 }
+
+.menu {
+    display: flex;
+    color: rgb(114, 114, 243);
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.menu:hover {
+    color: rgb(185, 185, 255);
+}
+
 
 /*##########################################
 #                  TABLE                   #
@@ -96,10 +116,54 @@
     border-color: rgb(185, 185, 255);
 }
 
-
 /*##########################################
-#                  MEDIA                   #
+#                  WINDOW                  #
 ##########################################*/
+
+#screen-window {
+    background-color: rgba(54, 54, 54, 0.5);
+    color: rgb(114, 114, 243);
+    position: fixed;   
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.screen {
+    border: 4px solid rgb(114, 114, 243);
+    border-radius: 15px;
+    background-color: white;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50%;
+}
+
+.screen > h2 {
+    font-size: 6vw;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.btns {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    font-size: 7vw;
+}
+
+.btns > div {
+    cursor: pointer;
+    border: 2px solid white;
+    padding: 0px 15px;
+}
+
+.btns > div:hover {
+    
+    border-color: rgb(114, 114, 243);
+    border-radius: 50px;
+}
 
 
 
@@ -147,13 +211,73 @@
     font-size: 13vw;
     margin: 0;
     margin-top: 160px;
+    margin-bottom: 30px;
     font-weight: bolder;
     color: rgb(71, 71, 233);
 }
 
+.throw-menu  {
+    position: relative;
+    color: rgb(71, 71, 233);
+    margin: 0 auto;
+    width: 35vw;
+    font-size: 6vw;
+    cursor: pointer;
+}
+
+.throw-menu > p {
+    font-weight:500;
+    position: relative;
+    color: rgb(71, 71, 233);
+    margin: 0 auto;
+    width: 35vw;
+    font-size: 6vw;
+    padding-bottom: 1vw;
+    border-bottom: 2px solid rgb(71, 71, 233);
+    cursor: pointer;
+}
+
+.no-blue-light {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.submenu {
+    width: 35vw;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: white;
+    list-style-type: none;
+    top: 8.9vw;
+    left: 0;
+    display: none;
+}
+
+.submenu > li {
+    border: 2px solid rgb(114, 114, 243);
+    padding: 5px 0;
+}
+
+.toggle-display {
+    display: block;
+}
+
+.submenu > li:hover { 
+    background-color: rgb(114, 114, 243);
+    color: white;
+}
+
+.submenu > li + li {
+    border-top: 0;
+}
+
 .btn-start {
-    margin-top: 200px;
+    margin-bottom: 100px;
     text-align: center;
+}
+
+.btn-start > button {
+    cursor: pointer;
 }
 
 #screen-start > div.btn-start > button {
@@ -163,7 +287,7 @@
     border-radius: 15px;
     font-size: 8vw;
     font-weight: bold;
-    padding: 5px 15px 10px 15px;
+    padding: 10px 15px 10px 15px;
     margin: 0 auto;
 }
 
@@ -193,13 +317,15 @@
     font-size: 13vw;
     margin: 0;
     margin-top: 150px;
+    margin-bottom: 100px;
     font-weight: bolder;
     color: rgb(199, 55, 55);
 }
 
 .btn-restart {
-    margin-top: 200px;
+    margin-top: 50px;
     text-align: center;
+    cursor: pointer;
 }
 
 #screen-gameover > div.btn-restart > button {
@@ -209,8 +335,9 @@
     border-radius: 15px;
     font-size: 8vw;
     font-weight: bold;
-    padding: 5px 15px 10px 15px;
+    padding: 10px 15px 10px 15px;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 #screen-gameover > div.btn-restart > button:hover {
@@ -237,28 +364,100 @@
     font-size: 13vw;
     margin: 0;
     margin-top: 150px;
+    margin-bottom: 100px;
     font-weight: bolder;
-    color: rgb(240, 208, 67);
+    color: rgb(255, 166, 34);
 }
 
 .btn-restart {
-    margin-top: 200px;
+    margin-bottom: 50px;
     text-align: center;
+    cursor: pointer;
 }
 
 #screen-win > div.btn-restart > button {
-    color: rgb(240, 208, 67);
-    border: 3px solid rgb(240, 208, 67);
+    color: rgb(255, 166, 34);
+    border: 3px solid rgb(255, 166, 34);
     background-color: white;
     border-radius: 15px;
     font-size: 8vw;
     font-weight: bold;
-    padding: 5px 15px 10px 15px;
+    padding: 10px 15px 10px 15px;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 #screen-win > div.btn-restart > button:hover {
     color: white;
-    background-color: rgb(240, 208, 67);
+    background-color: rgb(255, 166, 34);
 }
 
+/*##########################################
+#                  MEDIA                   #
+##########################################*/
+
+@media (min-width: 600px) {
+    article {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .count-lives {
+        font-size: 38px;
+    }
+
+    .num {
+        font-size: 38px;
+    }
+
+    .screen > h2 {
+        font-size: 38px;
+    }
+
+    .btns {
+        font-size: 42px;
+    }
+
+    .text-sudoku {
+        font-size: 80px;
+    }
+
+    .throw-menu  {
+        font-size: 38px;
+    }
+
+    .throw-menu > p {
+        font-size: 38px;
+        padding-bottom: 5px;
+        width: 200px;
+    }
+
+    .submenu {
+        top: 55px;
+    }
+
+    #screen-start > div.btn-start > button {
+        font-size: 42px;
+    }
+
+    .text-gameover {
+        font-size: 80px;
+    }
+
+    #screen-gameover > div.btn-restart > button {
+        font-size: 48px;
+    }
+
+    .text-win {
+        font-size: 80px;
+    }
+
+    #screen-win > div.btn-restart > button {
+        font-size: 48px;
+    }
+
+    .screen {
+        margin-top: 300px;
+        width: 500px;
+    }
+}
